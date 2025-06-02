@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AR Experience</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body>
+  <!-- AR Scene -->
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" style="display: none;">
+    <a-marker preset="hiro" smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5">
+      <!-- Main Scene -->
+      <a-entity
+        id="main-scene"
+        position="0 0 0"
+        rotation="0 0 0"
+        scale="0.1 0.1 0.1">
+        
+        <!-- Character -->
+        <a-entity
+          gltf-model="https://res.cloudinary.com/diu6hubef/image/upload/v1748581267/Project%20Virtual%20Design%20and%20Animation/guy_animated_xxnk1k.glb"
+        </a-entity>
+
+        <!-- 轮椅 -->
+        <a-entity
+          gltf-model="https://res.cloudinary.com/duqchsilk/image/upload/v1748850381/Wheelchair_animation_lgajiu.glb"
+          animation-mixer="clip: *; timeScale: 1"
+          position="-1.1 0.35 1.1"
+          scale="0.02 0.02 0.02"
+          rotation="0 -3.1 0">
+        </a-entity>
+
+        <!-- Table -->
+        <a-entity
+          gltf-model="https://res.cloudinary.com/diu6hubef/image/upload/v1748581257/Project%20Virtual%20Design%20and%20Animation/table_k0dlbn.glb"
+          position="-1.1 0 1.1"
+          rotation="0 0.9 0">
+        </a-entity>
+
+        <!-- Speaker -->
+        <a-entity
+          gltf-model="https://res.cloudinary.com/diu6hubef/image/upload/v1748581255/Project%20Virtual%20Design%20and%20Animation/big_speaker_cjw4bp.glb"
+          position="1 0 -0.6"
+          rotation="0 -2.2 0"
+          scale="0.2 0.2 0.2">
+        </a-entity>
+
+        <!-- Door -->
+        <a-entity
+          gltf-model="https://res.cloudinary.com/diu6hubef/image/upload/v1748581255/Project%20Virtual%20Design%20and%20Animation/door_hxps7k.glb"
+          position="1.7 0 0.4"
+          rotation="0 -1.7 0"
+          scale="0.17 0.17 0.17">
+        </a-entity>
+
+        <!-- Chair -->
+        <a-entity
+          gltf-model="https://res.cloudinary.com/diu6hubef/image/upload/v1748581257/Project%20Virtual%20Design%20and%20Animation/chair_b6esyd.glb"
+          position="-1.2 0 -0.4"
+          rotation="0 1 0"
+          scale="1.31 1.31 1.31">
+        </a-entity>
+
+        <!-- Glass Cup -->
+        <a-entity
+          gltf-model="https://res.cloudinary.com/diu6hubef/image/upload/v1748581260/Project%20Virtual%20Design%20and%20Animation/transparent_cup_with_image_izmhx9.glb"
+          position="-1.15 0.36 0.8"
+          scale="0.1 0.1 0.1">
+        </a-entity>
+      </a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <!-- Three.js Scene -->
+  <button class="serve-btn">🍣</button>
+  <button class="marbles-btn">🟣</button>
+  <button id="toggle-ar" class="ar-btn">AR Mode</button>
+  <audio id="marbleSound" src="https://res.cloudinary.com/diu6hubef/video/upload/v1748581401/Project%20Virtual%20Design%20and%20Animation/sound_r7obpg.mp3" preload="auto"></audio>
+  <canvas class="webgl"></canvas>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/",
+        "cannon-es": "https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js",
+        "lil-gui": "https://cdn.jsdelivr.net/npm/lil-gui@0.19.1/dist/lil-gui.esm.min.js"
+      }
+    }
+  </script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

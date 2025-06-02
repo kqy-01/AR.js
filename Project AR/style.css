@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+canvas {
+  display: block;
+}
+
+.serve-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.marbles-btn {
+  position: absolute;
+  top: 70px;
+  left: 20px; /* Positioned to the right of the serve button */
+  padding: 10px 20px;
+  font-size: 16px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.ar-btn {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  z-index: 1;
+  cursor: pointer;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.ar-btn:hover {
+  background: #45a049;
+}
+
+.ar-btn.active {
+  background: #2196F3;
+}
+
+#ui-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  text-align: center;
+}
+
+#start-ar {
+  padding: 12px 24px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#start-ar:hover {
+  background: #45a049;
+}
+
+.a-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
